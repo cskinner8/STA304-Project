@@ -1,0 +1,20 @@
+You will need to email me when you have changed your survey for me to post on Piazza.
+
+Disclaimer: in the process of constructing feedback, I recorded my audio and got AI to rephrase my feedback in a concise, clear manner so that I can mark faster + you get more detailed feedback. I did not run any of the assignments through AI.
+
+Repeated measures ANOVA
+Please do not use repeated measures ANOVA in your analysis. This method only makes sense when you collect multiple responses from the same person, as in a healthcare study with repeated blood tests. In this course, each student completes your questionnaire once, so your data will not meet the assumptions of the test.
+(I am not really going to deduct marks for this as you've indicated a more feasible advanced test.)
+
+Bootstrapping
+Bootstrapping is fine to keep, but please word it carefully. Use it for confidence interval estimation only. Do not use it to estimate the proportions themselves. The sample proportion is already the best estimate, and a bootstrapped proportion will not improve on it.
+
+Gift card and personal information
+I want to collect as little personal information as possible. If you offer a gift card, please do not collect contact details in your survey. Instead, randomly sample from the course-specific IDs yourself and send me the selected ID. I will administer the gift card. This prevents anyone from accidentally uploading email addresses to your public GitHub repository.
+
+Rating scale
+Your questionnaire uses a 1 to 5 scale, running from never to always. A scale with only five values is hard to analyze once you treat it as a quantitative variable. Please extend it to 7 or 10 points, which are more standard in questionnaires and give you more variation to work with.
+
+(-0.1 for the questionnaire)
+
+Grade: 0.9/1
