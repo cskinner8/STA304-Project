@@ -1,0 +1,23 @@
+STA304 Exploratory Data Analysis Feedback
+
+Overall, I like how your analysis is structured.
+
+Disclaimer: in the process of constructing feedback, I recorded my audio and got AI to rephrase my feedback in a concise, clear manner so that I can mark faster + you get more detailed feedback. I did not run any of the assignments through AI.
+
+Bootstrapped confidence intervals
+
+With a sample size of 5, bootstrapped confidence intervals will not support good conclusions at all. I am not penalizing this, since bootstrapping is mostly discussed in STA380.
+
+Conclusions for RQ1 and RQ2
+
+I understand why you did not run statistical tests for RQ1 and RQ2, since nothing in the course material would have helped answer these questions. In general, though, we avoid drawing conclusions without performing a test. Summary statistics and graphs do not count as a statistical conclusion. I am not deducting marks for this, since the methods are beyond the scope of the course.
+
+A suggestion
+
+If you want to go further, the Friedman test (https://en.wikipedia.org/wiki/Friedman_test) could tell you whether at least one of the categories differs. A proper analysis would follow up with paired tests and p-value corrections. That is mostly taught in STA305, which many students take after STA304, so I will not go into details here.
+
+Grade breakdown
+
+No marks were deducted.
+
+Total (2 / 2)
