@@ -7,6 +7,11 @@ library(bslib)
 library(ggplot2)
 library(DT)
 
+# Anna: for section 1, I would try to put it in different .R files so you don't
+# have to scroll through all of the code in app.R.
+# When you have functions, it's common to have a /R folder that contains all 
+# of the functions to separate from the ui and server side.
+
 # -----------------------------------------------------------------------------
 # 1. Data and readable labels
 # -----------------------------------------------------------------------------
@@ -77,11 +82,17 @@ palette_sets <- list(
   "Colour-blind friendly" = c("#0072B2", "#E69F00", "#56B4E9")
 )
 
+# Anna: It would be good if you could add actual documentation for your functions 
+# as well, as it's not directly obvious to me what this is necessarily used for.
+# Would be easier to go back and explain what it's for as well. For R, roxygen
+# comments are often used for documentation.
 pct_text <- function(k, n, digits = 1) {
   if (is.null(n) || n <= 0) return("—")
   sprintf(paste0("%.", digits, "f%%"), 100 * k / n)
 }
 
+# Anna: why are you calling this distribution free? This is a weird documentation
+# comment.This just looks like a type of confidence interval.
 # Distribution-free, score-based interval for a binary sample proportion.
 wilson_interval <- function(k, n, conf = 0.95) {
   if (n < 1) return(c(NA_real_, NA_real_))
@@ -98,6 +109,8 @@ bootstrap_barrier_intervals <- function(df, vars, reps = 20000L) {
   n <- nrow(df)
   if (n == 0) return(matrix(NA_real_, nrow = length(vars), ncol = 2))
   m <- as.matrix(df[, vars, drop = FALSE])
+  # Anna: why are you setting this seed at all times? Perhaps you could have
+  # someone set in their own seed so they can see how the bootstrap differs?
   set.seed(20261021)
   samples <- replicate(reps, {
     idx <- sample.int(n, size = n, replace = TRUE)
@@ -145,6 +158,10 @@ section_intro <- function(kicker, heading, description) {
 ui <- fluidPage(
   theme = bslib::bs_theme(version = 5, bg = "#F5F8F8", fg = "#17313B",
                           primary = "#167D86", base_font = "system-ui"),
+  # Anna: TBH, I wondered if you could've just opted for an in-house R Shiny 
+  # interface (something like: https://rstudio.github.io/shinythemes/)
+  # While I do think your interface looks nice, because it requires certain usage of 
+  # css, it's a bit beyond what I expect statistics students to be proficient in.
   tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")),
   tags$div(class = "app-wrap",
     tags$div(class = "hero",
@@ -321,6 +338,10 @@ server <- function(input, output, session) {
     updateSliderInput(session, "access_filter", value = c(1, 7))
   })
 
+  # Anna: the one thing I think is uncanny is the lack of comments when it comes to
+  # some of these reactive variables; I think I would've been explicit that here, 
+  # filtered is some reactive variable that filters the data based on some sort of
+  # X or Y...
   filtered <- reactive({
     x <- raw
     if (!is.null(input$task_filter) && input$task_filter != "all") {
@@ -591,6 +612,7 @@ server <- function(input, output, session) {
     }
     p
   }, res=110)
+  
   output$barrier_table <- renderTable({
     out <- barrier_estimates(); validate(need(nrow(out)>0,"No eligible respondents remain after filtering."))
     bounds <- bootstrap_results()
@@ -599,6 +621,7 @@ server <- function(input, output, session) {
     out$`Wilson 95% interval` <- sprintf("%.1f–%.1f%%",out$Wilson_lower,out$Wilson_upper)
     out[,c("Barrier","Observed share","Bootstrap 95% interval","Wilson 95% interval")]
   }, striped=TRUE, spacing="s", width="100%")
+  
   output$barrier_explainer <- renderText({
     out <- barrier_estimates()
     if(!nrow(out)) return("No respondents meet the access threshold and the current filters.")
