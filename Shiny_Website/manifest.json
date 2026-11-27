@@ -1834,16 +1834,28 @@
       "checksum": "7fcd370b7c51cc9152f6bd227c43610f"
     },
     "app (original.R": {
-      "checksum": "c9e01581a770c1732c9c7eb579c9272a"
+      "checksum": "6afb43231cdf3f2a8e094059d3199e8b"
     },
     "app.R": {
-      "checksum": "e77daf5b828a1882eab962d4a8c61041"
-    },
-    "checks/check_data.R": {
-      "checksum": "9e61217c064865c0dea75d4cb56397ac"
+      "checksum": "bb936a674e6a425cfc8f7e0d23b22711"
     },
     "data/study_locations.csv": {
       "checksum": "3e0ec7ef741b97c4254e1e8199389de0"
+    },
+    "R/_disable_autoload.R": {
+      "checksum": "deb22e91211ec8412c7a04198ec47c7f"
+    },
+    "R/controls.R": {
+      "checksum": "0316ed91fb992c54dda6b5058b6e6614"
+    },
+    "R/helper.R": {
+      "checksum": "913a832adb4d2fd23ffa7b15691cf8f0"
+    },
+    "R/study-tabs.R": {
+      "checksum": "f224f49dd52d39c9aa481590edcbc9da"
+    },
+    "server-analysis.R": {
+      "checksum": "6de3c108222cc5e5c0ac0a099d567274"
     },
     "www/styles.css": {
       "checksum": "7fcd370b7c51cc9152f6bd227c43610f"
